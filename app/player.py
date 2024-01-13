@@ -99,8 +99,6 @@ class RadioPlayer(commands.Cog):
             await ctx.send(f"```{m}```")
 
         await ctx.send(f"`{self.prefix} play <stasiun radio>` untuk memulai memutar, contoh: `{self.prefix} play {random.choice(stations_list)}`")
-        await ctx.send(f"`{self.prefix} support` untuk gabung ke support server (request tambah atau hapus stasiun)")
-        await ctx.send(f"Kamu juga bisa bantu donasi untuk biaya hosting bot ini di `{self.prefix} donate`")
         return
 
     @commands.cooldown(rate=1, per=5, type=commands.BucketType.guild)
@@ -174,10 +172,6 @@ class RadioPlayer(commands.Cog):
             while True:
                 await asyncio.sleep(30)
                 if vc.is_playing():
-                    # send promo message once at a time in a session
-                    if already_promote is False:
-                        await ctx.send(f"Bot ini akan berhenti beroperasi dalam waktu dekat, cek di `{self.prefix} support` untuk info lebih lanjut.")
-                    already_promote = True
 
                     await asyncio.sleep(5)
                     # if bot is alone in voice channel, it will stop the radio and leave

@@ -4,7 +4,6 @@ import os
 from discord.ext import commands
 from dotenv import load_dotenv
 from app.player import RadioPlayer
-from app.extras import Extras
 from app.misc import Misc
 from app.task import BotTask
 from app.static import COMMANDS
@@ -88,7 +87,6 @@ async def on_command_error(ctx, error):
 
 
 bot.add_cog(RadioPlayer(bot, PREFIX))
-bot.add_cog(Extras(bot, PREFIX))
 bot.add_cog(Misc(bot, PREFIX))
 bot.add_cog(BotTask(bot, PREFIX))
 bot.run(TOKEN)
